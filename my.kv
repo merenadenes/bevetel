@@ -1,0 +1,209 @@
+WindowManager:
+    MainWindow:
+    SecondWindow:
+    ThirdWindow:
+    FourthWindow:
+    FifthWindow:
+    SixthWindow:
+    SeventhWindow:
+
+
+
+<MainWindow>:
+    name: "main"
+
+    GridLayout:
+        cols:1
+
+        Button:
+            text: 'Mai osszbevetel rogzitese'
+            on_release:
+                app.root.current = "Second"
+                root.manager.transition.direction = "left"
+        Button:
+            text: "Mai bevetel bovitese"
+            on_release:
+                app.root.current = "Third"
+                root.manager.transition.direction = "left"
+        Button:
+            text: "Adott honap bevetele"
+            on_release:
+                app.root.current = "Fourth"
+                root.manager.transition.direction = "left"
+        Button:
+            text: "Adott nap bevetele"
+            on_release:
+                app.root.current = "Fifth"
+                root.manager.transition.direction = "left"
+        Button:
+            text: "Mindenkori bevetel"
+            on_release:
+                root.osszbevetel()
+        Button:
+            text: "Bevetel modositasa egy adott napon"
+            on_release:
+                app.root.current = "Seventh"
+                root.manager.transition.direction = "left"
+        Button:
+            text: "Biztonsagi mentes"
+            on_release:
+                root.biztonsagimentes()
+
+
+<SecondWindow>:
+    name: "Second"
+
+    userinput: userinput
+
+    GridLayout:
+        cols:1
+
+        Label:
+            text: "Ird be az osszeget"
+
+        TextInput:
+            id: userinput
+            multiline: False
+
+
+        Button:
+            text: "Vegelegesit"
+            on_release:
+                root.maiosszbevetel()
+        Button:
+            text: "Vissza"
+            on_release:
+                app.root.current = "main"
+                root.manager.transition.direction = "right"
+
+<ThirdWindow>:
+    name: "Third"
+
+    userinput: userinput
+
+    GridLayout:
+        cols:1
+
+        Label:
+            text: "Ird be az osszeget"
+
+        TextInput:
+            id: userinput
+            multiline: False
+
+
+        Button:
+            text: "Vegelegesit"
+            on_release:
+                root.maibevetelhozzaadas()
+        Button:
+            text: "Vissza"
+            on_release:
+                app.root.current = "main"
+                root.manager.transition.direction = "right"
+
+<FourthWindow>:
+    name: "Fourth"
+
+    userinput: userinput
+
+    GridLayout:
+        cols:1
+
+        Label:
+            text: "Add meg a honapot (pl. 2020.08)"
+
+        TextInput:
+            id: userinput
+            multiline: False
+
+
+        Button:
+            text: "Veglegesit"
+            on_release:
+                root.adotthonapbevetel()
+        Button:
+            text: "Vissza"
+            on_release:
+                app.root.current = "main"
+                root.manager.transition.direction = "right"
+
+<FifthWindow>:
+    name: "Fifth"
+
+    userinput: userinput
+
+    GridLayout:
+        cols:1
+
+        Label:
+            text: "Írd be az összeget"
+
+        TextInput:
+            id: userinput
+            multiline: False
+
+        Button:
+            text: "Veglegesit"
+            on_release:
+                root.beveteladottnap()
+
+
+        Button:
+            text: "Vissza"
+            on_release:
+                app.root.current = "main"
+                root.manager.transition.direction = "right"
+
+
+
+<SeventhWindow>:
+    name: "Seventh"
+
+    userinput: userinput
+
+    GridLayout:
+        cols:1
+
+        Label:
+            text: "Ird be az adott napot es az osszeget igy:\nev.ho.nap.osszeg"
+
+        TextInput:
+            id: userinput
+            multiline: False
+
+
+        Button:
+            text: "Vegelegesit"
+            on_release:
+                root.bevetelmodositasadottnap()
+        Button:
+            text: "Vissza"
+            on_release:
+                app.root.current = "main"
+                root.manager.transition.direction = "right"
+
+<EighthWindow>:
+    name: "Eighth"
+
+    userinput: userinput
+
+    GridLayout:
+        cols:1
+
+        Label:
+            text: "Írd be az összeget"
+
+        TextInput:
+            id: userinput
+            multiline: False
+
+
+        Button:
+            text: "Végelegesít"
+            on_release:
+                root.maibevetelhozzaadas()
+        Button:
+            text: "Vissza"
+            on_release:
+                app.root.current = "main"
